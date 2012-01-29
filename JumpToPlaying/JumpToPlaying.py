@@ -1,6 +1,5 @@
-# __init__.py			
-
-# Copyright (C) 2007,2008 Steven Brown
+# original author: Steven Brown
+# Rhythmbox3 port: Timo Loewe
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
