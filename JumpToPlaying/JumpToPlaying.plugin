@@ -1,0 +1,9 @@
+[Plugin]
+Loader=python
+Module=JumpToPlaying
+IAge=2
+Name=Jump to Playing
+Description=Adds "Jump to Playing Song" link in toolbar and the browser's context menu. Hides toolbar button when in small display mode.
+Authors=Steven Brown <steven.w.j.brown@gmail.com>
+Copyright=Copyright © 2007,2008 Steven Brown
+Website=http://www.stevenbrown.ca/blog/?s=jump-to-playing
