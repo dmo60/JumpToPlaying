@@ -5,5 +5,4 @@ IAge=2
 Name=Jump to Playing
 Description=Adds "Jump to Playing Song" link in toolbar and the browser's context menu
 Authors=Timo Loewe (RB 3 port) <timoloewe91@gmail.com>,\nSteven Brown (original work) <steven.w.j.brown@gmail.com>
-Copyright=Copyright © 2012 Timo Loewe
 Website=https://github.com/dmo60/JumpToPlaying
