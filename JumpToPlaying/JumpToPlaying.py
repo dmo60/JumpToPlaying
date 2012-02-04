@@ -118,7 +118,6 @@ class JumpToPlaying(GObject.GObject, Peas.Activatable):
 			del self.ui_cm
 
 		small_display_toggle = uim.get_widget ("/MenuBar/ViewMenu/ViewSmallDisplayMenu")
-		small_display_toggle.disconnect (self.br_conn_id)
 		small_display_toggle.disconnect (self.tb_conn_id)
 
 		uim.ensure_update()
