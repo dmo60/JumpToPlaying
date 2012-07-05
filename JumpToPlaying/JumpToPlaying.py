@@ -14,9 +14,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import gconf
-
-from gi.repository import GObject, Peas
+from gi.repository import Gio, GObject, Peas
 
 toolbar_button_key = 'toolbar_button'
 context_menu_key = 'context_menu'
@@ -87,6 +85,8 @@ class JumpToPlaying(GObject.GObject, Peas.Activatable):
 
 	def do_activate (self):
 		self.shell = self.object
+
+		self.settings = Gio.Settings("org.gnome.rhythmbox")
 		
 		uim = self.shell.props.ui_manager	
 
@@ -97,16 +97,17 @@ class JumpToPlaying(GObject.GObject, Peas.Activatable):
 		# hide the button in Small Display mode
 		# Since Rhythmbox 2.97 there is no longer a SmallDisplayMode, but for now we keep it for compatibility 
 		try:
-				small_display_toggle = uim.get_widget ("/MenuBar/ViewMenu/ViewSmallDisplayMenu")
-				tb_widget = uim.get_widget ("/ToolBar/PluginPlaceholder/ToolBarJumpToPlaying")
-				self.tb_conn_id = small_display_toggle.connect ('toggled', self.hide_if_active, tb_widget)
-		except:
-			pass
+			small_display_toggle = uim.get_widget ("/MenuBar/ViewMenu/ViewSmallDisplayMenu")
+			tb_widget = uim.get_widget ("/ToolBar/PluginPlaceholder/ToolBarJumpToPlaying")
+			self.tb_conn_id = small_display_toggle.connect ('toggled', self.hide_if_active, tb_widget)
 
-		# start hidden if in small_display
-		is_small = gconf.client_get_default().get_bool("/apps/rhythmbox/ui/small_display")
-		if (is_small):
-			tb_widget.hide()
+			# start hidden if in small_display
+			is_small = self.settings["small-display"]
+			if (is_small):
+				tb_widget.hide()
+		except:
+			print "No SmallDisplayMode anymore (since Rhythmbox 2.97)"
+			pass
 
 	
 	def do_deactivate (self):
