@@ -65,12 +65,12 @@ ui_context_menu = """
 
 
 
-class JumpToPlaying(GObject.GObject, Peas.Activatable):
+class JumpToPlaying(GObject.Object, Peas.Activatable):
 	__gtype_name = 'JumpToPlaying'
-	object = GObject.property(type=GObject.GObject)
+	object = GObject.property(type=GObject.Object)
 
 	def __init__(self):
-		GObject.GObject.__init__(self)
+		GObject.Object.__init__(self)
 
 		
 	def update_ui (self):
