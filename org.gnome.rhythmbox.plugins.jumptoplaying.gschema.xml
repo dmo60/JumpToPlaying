@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+	<schema id="org.gnome.rhythmbox.plugins.jumptoplaying" path="/org/gnome/rhythmbox/plugins/jumptoplaying/">
+		
+		<key name="use-custom-label" type="b">
+			<default>false</default>
+			<summary>Use custom label for toolbar icon</summary>
+			<description></description>
+		</key>
+		
+		<key name="label-text" type="s">
+			<default>"Jump to Playing Song"</default>
+			<summary>Custom label text to be used when use-custom-label is enabled</summary>
+			<description></description>
+		</key>
+
+	</schema>
+</schemalist>

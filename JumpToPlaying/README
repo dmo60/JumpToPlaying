@@ -3,13 +3,14 @@ JumpToPlaying
 
 JumpToPlaying is a Rhythmbox plugin which adds a context menu entry and a toolbar button to jump to the playing song.
 
+It is also possible to set a custom label for the toolbar icon (e.g. when the default text is too long) in the plugin's configuration dialog.
+
 
 
 Installation
 ===============
 
-	1) Copy the folder "JumpToPlaying" to the directory "~/.local/share/rhythmbox/plugins/".
-	   (If this directory doesn't exist, create it!)
+	1) Run the 'install.sh' script.
 	
 	2) Enable the plugin in Rhythmbox under 'Edit > Plugins'
 
