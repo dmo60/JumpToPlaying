@@ -20,8 +20,6 @@ from gi.repository import Gio
 from gi.repository import PeasGtk
 from gi.repository import Gtk
 
-toolbar_button_key = 'toolbar_button'
-context_menu_key = 'context_menu'
 
 ui_toolbar_button = """
 <ui>
@@ -106,7 +104,7 @@ class JumpToPlaying(GObject.Object, Peas.Activatable, PeasGtk.Configurable):
             if (is_small):
                 tb_widget.hide()
         except:
-            print "No SmallDisplayMode anymore (since Rhythmbox 2.97)"
+            #print "No SmallDisplayMode anymore (since Rhythmbox 2.97)"
             pass
 
     
@@ -185,6 +183,7 @@ class JumpToPlaying(GObject.Object, Peas.Activatable, PeasGtk.Configurable):
         entry_buffer = Gtk.EntryBuffer()
         entry_buffer.set_text(self.settings["label-text"], len(self.settings["label-text"]))
         entry_buffer.connect("inserted-text", self.label_edited)
+        entry_buffer.connect("deleted-text", self.label_edited)
         entry.set_buffer(entry_buffer)
         
         
@@ -204,7 +203,7 @@ class JumpToPlaying(GObject.Object, Peas.Activatable, PeasGtk.Configurable):
         self.settings["use-custom-label"] = switch.get_active()
         
     
-    def label_edited(self, entry_buffer, position, chars, n_chars):
+    def label_edited(self, entry_buffer, *args):
         self.settings["label-text"] = entry_buffer.get_text()
     
     
